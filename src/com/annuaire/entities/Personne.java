@@ -6,7 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+/**
+ * La classe personne
+ * @author michaelplong amaury doudement
+ *
+ */
 @Entity
 public class Personne implements Serializable {
 
@@ -18,48 +22,48 @@ public class Personne implements Serializable {
 	/**
      * L'ID de la personne. Cet ID est modifiable.
      * 
-     * @see setId(Long id)
-     * @see getId()
+     * @see #setId(Long id)
+     * @see #getId()
      */
     private Long   id;
 	
 	/**
      * Le nom de la personne. Ce nom est modifiable.
      * 
-     * @see setNom(String nom)
-     * @see getNom()
+     * @see #setNom(String nom)
+     * @see #getNom()
      */
     private String nom;
     
     /**
      * Le prenom de la personne. Ce prenom est modifiable.
      * 
-     * @see setPrenom(String prenom)
-     * @see getPrenom()
+     * @see #setPrenom(String prenom)
+     * @see #getPrenom()
      */
     private String prenom;
     
     /**
      * L'email de la personne. L'email est modifiable.
      * 
-     * @see setEmail(String email)
-     * @see getEmail()
+     * @see #setEmail(String email)
+     * @see #getEmail()
      */
     private String email;
     
     /**
      * Le site Web de la personne. Le site Web est modifiable.
      * 
-     * @see setSiteWeb(String siteWeb)
-     * @see getSiteWeb()
+     * @see #setSiteWeb(String siteWeb)
+     * @see #getSiteWeb()
      */
     private String siteWeb;
     
     /**
      * La Date de Naissance de la personne. La Date de Naissance est modifiable.
      * 
-     * @see setDateNaissance(String DateNaissance)
-     * @see getDateNaissance()
+     * @see #setDateNaissance(String DateNaissance)
+     * @see #getDateNaissance()
      */
     private String dateNaissance;
     
@@ -68,8 +72,8 @@ public class Personne implements Serializable {
     /**
      * Le mot de passe de la personne. Le MP est modifiable.
      * 
-     * @see setMP(String mp)
-     * @see getMP()
+     * @see #setMp(String mp)
+     * @see #getMp()
      */
     private String mp;
     
@@ -110,8 +114,8 @@ public class Personne implements Serializable {
     }
 
     /**
-     * Met à jour le prenom de la personne.
-     * @param nom
+     * Met a jour le prenom de la personne.
+     * @param prenom
      * Le nouveau prenom de la personne.
      */
     public void setPrenom( String prenom ) {
@@ -128,7 +132,7 @@ public class Personne implements Serializable {
     }
 
     /**
-     * Met à jour l'email de la personne.
+     * Met a jour l'email de la personne.
      * @param email
      * Le nouveau email de la personne.
      */
@@ -155,7 +159,7 @@ public class Personne implements Serializable {
 	}
 
     /**
-     * Met à jour le mot de passe de la personne.
+     * Met a jour le mot de passe de la personne.
      * @param mp
      * Le nouveau mot de passe de la personne.
      */
@@ -173,7 +177,7 @@ public class Personne implements Serializable {
 	}
 
 	/**
-     * Met à jour le site web de la personne.
+     * Met a jour le site web de la personne.
      * @param siteWeb
      * Le nouveau site web de la personne.
      */
@@ -185,14 +189,14 @@ public class Personne implements Serializable {
 	/**
      * Retourne la date de naissance de la personne.
      * 
-     * @return dateNaissance, qui correspond à la date de naissance de la personne.
+     * @return dateNaissance, qui correspond a la date de naissance de la personne.
      */
 	public String getDateNaissance() {
 		return dateNaissance;
 	}
 
 	/**
-     * Met à jour la date de naiissance de la personne.
+     * Met a jour la date de naissance de la personne.
      * @param dateNaissance
      * La nouvelle date de naissance de la personne.
      */
@@ -200,10 +204,23 @@ public class Personne implements Serializable {
 		this.dateNaissance = dateNaissance;
 	}
 	
+	/**
+	 * 
+	 *  Retourne le groupe de la personne.
+	 * 
+	 * @return groupe,qui correspond au groupe de la personne.
+	 */
 	public String getGroupe() {
 		return groupe;
 	}
 
+	/**
+	 * 
+	 * Met a jour le groupe de la personne.
+	 * 
+	 * @param groupe
+	 * Le nouveau groupe de la personne.
+	 */
 	public void setGroupe(String groupe) {
 		this.groupe = groupe;
 	}

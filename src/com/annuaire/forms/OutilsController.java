@@ -21,7 +21,12 @@ public class OutilsController {
     public static final String ATT_SESSION_ADMIN="sessionAdmin";
 
     /*********************************** AJOUTER PERSONNE ****************************************/
-    
+    /**
+     * 
+     * @param request
+     * @param personneDao
+     * @return
+     */
 	public String ajouterPersonne(HttpServletRequest request, PersonneDao personneDao) {
 		CreationPersonneForm form = new CreationPersonneForm( personneDao );
 	    Personne personne = form.creerPersonne( request );
@@ -49,7 +54,13 @@ public class OutilsController {
 	}
 	
 	/*********************************** TROUVER PERSONNE ****************************************/
-	
+	/**
+	 * 
+	 * @param request
+	 * @param personneDao
+	 * @param page
+	 * @return
+	 */
 	public String trouverPersonne(HttpServletRequest request, PersonneDao personneDao, String page) {
 		Personne personne = null;
 		String idPersonne = getValeurParametre( request, PARAM_ID_CLIENT );
@@ -80,7 +91,12 @@ public class OutilsController {
 	
 
 	/********************************** SUPPRIMER PERSONNE ***************************************/
-	
+	/**
+	 * 
+	 * @param request
+	 * @param personneDao
+	 * @return
+	 */
 	public String supprimerPersonne(HttpServletRequest request, PersonneDao personneDao) {
 		String idPersonne = getValeurParametre( request, PARAM_ID_CLIENT );
 	    Long id = Long.parseLong( idPersonne );
@@ -102,7 +118,13 @@ public class OutilsController {
 	}
 	
 	/********************************** MODIFIER PERSONNE ***************************************/
-	
+	/**
+	 * 
+	 * @param request
+	 * @param personneDao
+	 * @param idtmp
+	 * @return
+	 */
 	public String modifierPersonne(HttpServletRequest request, PersonneDao personneDao, String idtmp) {
 		String idPersonne = idtmp;
 	    Long id = Long.parseLong( idPersonne );
@@ -148,7 +170,12 @@ public class OutilsController {
 	}
 	
 	/************************************* CONNEXION ******************************************/
-	
+	/**
+	 * 
+	 * @param request
+	 * @param personneDao
+	 * @return
+	 */
 	public String connexion(HttpServletRequest request, PersonneDao personneDao) {
 		HttpSession session = request.getSession();
 	
@@ -177,7 +204,14 @@ public class OutilsController {
 
 	/************************************* UTILITAIRE ******************************************/	
 	
-	//M�thode utilitaire qui retourne null si un param�tre est vide, et son contenu sinon.
+	
+	/**
+	 * 
+	 * Methode utilitaire qui retourne null si un parametre est vide, et son contenu sinon.
+	 * @param request
+	 * @param nomChamp
+	 * @return
+	 */
     private static String getValeurParametre( HttpServletRequest request, String nomChamp ) {
         String valeur = request.getParameter( nomChamp );
         if ( valeur == null || valeur.trim().length() == 0 ) {

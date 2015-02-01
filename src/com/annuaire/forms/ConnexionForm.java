@@ -18,14 +18,28 @@ public final class ConnexionForm {
     private String              resultat;
     private Map<String, String> erreurs      = new HashMap<String, String>();
 
+	/**
+	 * 
+	 * @return resultat
+	 */
     public String getResultat() {
         return resultat;
     }
-
+    
+    /**
+     * 
+     * @return erreur
+     */
     public Map<String, String> getErreurs() {
         return erreurs;
     }
-
+    
+    /**
+     * Permet la connection d'une personne 
+     * 
+     * @param request
+     * @return utilisteur, retourne la personne qui s'est connecter
+     */
     public Personne connecterPersonne( HttpServletRequest request ) {
         /* R�cup�ration des champs du formulaire */
         String email = getValeurChamp( request, CHAMP_EMAIL );
@@ -67,8 +81,13 @@ public final class ConnexionForm {
         return utilisateur;
     }
 
+
     /**
+     * 
      * Valide l'adresse email saisie.
+     * 
+     * @param email
+     * @throws Exception
      */
     private void validationEmail( String email ) throws Exception {
         if ( email != null ){
@@ -80,7 +99,11 @@ public final class ConnexionForm {
     }
 
     /**
-     * Valide le mot de passe saisi.
+     * 
+     * Valide le mot de passe saisie.
+     * 
+     * @param motDePasse
+     * @throws Exception
      */
     private void validationMotDePasse( String motDePasse ) throws Exception {
         if ( motDePasse != null ) {
@@ -91,9 +114,15 @@ public final class ConnexionForm {
             throw new Exception( "Merci de saisir votre mot de passe." );
         }
     }
-    
+
     /**
+     * 
      * Valide la presence en base.
+     * 
+     * @param email
+     * @param motDePasse
+     * @param request
+     * @throws Exception
      */
     private void validationPresence( String email, String motDePasse, HttpServletRequest request ) throws Exception {
     	
@@ -130,16 +159,24 @@ public final class ConnexionForm {
 		}
     }
 
-    /*
-     * Ajoute un message correspondant au champ sp�cifi� � la map des erreurs.
+
+    /**
+     * Ajoute un message correspondant au champ specifique a la map des erreurs.
+     * @param champ
+     * @param message
      */
     private void setErreur( String champ, String message ) {
         erreurs.put( champ, message );
     }
 
-    /*
-     * M�thode utilitaire qui retourne null si un champ est vide, et son contenu
+
+    /**
+     * 
+     * Methode utilitaire qui retourne null si un champ est vide, et son contenu
      * sinon.
+     * @param request
+     * @param nomChamp
+     * @return
      */
     private static String getValeurChamp( HttpServletRequest request, String nomChamp ) {
         String valeur = request.getParameter( nomChamp );
